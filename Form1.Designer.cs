@@ -150,7 +150,6 @@
             gr_periodo.TabIndex = 15;
             gr_periodo.TabStop = false;
             gr_periodo.Text = "Período";
-            gr_periodo.Enter += gr_periodo_Enter;
             // 
             // rd_manha
             // 
@@ -164,7 +163,7 @@
             rd_manha.TabStop = true;
             rd_manha.Text = "Manhã";
             rd_manha.UseVisualStyleBackColor = true;
-            rd_manha.Leave += rd_manha_Leave;
+            rd_manha.CheckedChanged += rd_manha_CheckedChanged;
             // 
             // rd_noite
             // 
@@ -178,7 +177,7 @@
             rd_noite.TabStop = true;
             rd_noite.Text = "Noite";
             rd_noite.UseVisualStyleBackColor = true;
-            rd_noite.Leave += rd_manha_Leave;
+            rd_noite.CheckedChanged += rd_noite_CheckedChanged;
             // 
             // rd_tarde
             // 
@@ -192,7 +191,8 @@
             rd_tarde.TabStop = true;
             rd_tarde.Text = "Tarde";
             rd_tarde.UseVisualStyleBackColor = true;
-            rd_tarde.Leave += rd_manha_Leave;
+            rd_tarde.CheckedChanged += rd_tarde_CheckedChanged;
+            
             // 
             // lst_disponiveis
             // 

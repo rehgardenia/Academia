@@ -157,12 +157,18 @@ namespace Tarefa01
             AtivarSelecao();
         }
 
-        private void gr_periodo_Enter(object sender, EventArgs e)
-        {
 
+        private void rd_manha_CheckedChanged(object sender, EventArgs e)
+        {
+            AtivarSelecao();
         }
 
-        private void rd_manha_Leave(object sender, EventArgs e)
+        private void rd_tarde_CheckedChanged(object sender, EventArgs e)
+        {
+            AtivarSelecao();
+        }
+
+        private void rd_noite_CheckedChanged(object sender, EventArgs e)
         {
             AtivarSelecao();
         }
