@@ -1,6 +1,6 @@
 ﻿namespace Tarefa01
 {
-    partial class Academia
+    partial class Formulario
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            btn_limpar = new Button();
             lb_nome = new Label();
             txt_nome = new TextBox();
             pictureBox1 = new PictureBox();
@@ -39,27 +39,27 @@
             rd_manha = new RadioButton();
             rd_noite = new RadioButton();
             rd_tarde = new RadioButton();
-            lts_disponiveis = new ListBox();
+            lst_disponiveis = new ListBox();
             gr_modalidades = new GroupBox();
-            lts_selecionadas = new ListBox();
-            button5 = new Button();
-            btn = new Button();
-            btn_individualEsquerda = new Button();
-            btn_individualDireita = new Button();
+            lst_selecionadas = new ListBox();
+            btn_removeTodos = new Button();
+            btn_addTodos = new Button();
+            btn_remove = new Button();
+            btn_add = new Button();
             groupBox3 = new GroupBox();
-            textBox5 = new TextBox();
+            txt_valor = new TextBox();
             label6 = new Label();
-            textBox4 = new TextBox();
+            txt_cortesia = new TextBox();
             label5 = new Label();
-            textBox3 = new TextBox();
+            txt_qtd = new TextBox();
             label4 = new Label();
-            button2 = new Button();
+            btn_sair = new Button();
             groupBox4 = new GroupBox();
-            checkBox5 = new CheckBox();
-            checkBox4 = new CheckBox();
-            checkBox3 = new CheckBox();
-            checkBox2 = new CheckBox();
-            checkBox1 = new CheckBox();
+            chk_musculacao = new CheckBox();
+            chk_natacao = new CheckBox();
+            chk_pilates = new CheckBox();
+            chk_yoga = new CheckBox();
+            chk_meditacao = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             gr_periodo.SuspendLayout();
             gr_modalidades.SuspendLayout();
@@ -67,16 +67,16 @@
             groupBox4.SuspendLayout();
             SuspendLayout();
             // 
-            // button1
+            // btn_limpar
             // 
-            button1.Location = new Point(43, 631);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(114, 51);
-            button1.TabIndex = 0;
-            button1.Text = "Limpar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btn_limpar.Location = new Point(43, 631);
+            btn_limpar.Margin = new Padding(3, 4, 3, 4);
+            btn_limpar.Name = "btn_limpar";
+            btn_limpar.Size = new Size(114, 51);
+            btn_limpar.TabIndex = 0;
+            btn_limpar.Text = "Limpar";
+            btn_limpar.UseVisualStyleBackColor = true;
+            btn_limpar.Click += btn_limpar_Click;
             // 
             // lb_nome
             // 
@@ -87,7 +87,6 @@
             lb_nome.Size = new Size(50, 20);
             lb_nome.TabIndex = 1;
             lb_nome.Text = "Nome";
-            lb_nome.Click += label1_Click;
             // 
             // txt_nome
             // 
@@ -97,10 +96,11 @@
             txt_nome.Name = "txt_nome";
             txt_nome.Size = new Size(574, 27);
             txt_nome.TabIndex = 4;
+            txt_nome.Leave += txt_nome_Leave;
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(661, 37);
+            pictureBox1.Location = new Point(661, 40);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(165, 195);
@@ -119,11 +119,12 @@
             // txt_email
             // 
             txt_email.CharacterCasing = CharacterCasing.Lower;
-            txt_email.Location = new Point(41, 120);
+            txt_email.Location = new Point(43, 118);
             txt_email.Margin = new Padding(3, 4, 3, 4);
             txt_email.Name = "txt_email";
             txt_email.Size = new Size(574, 27);
             txt_email.TabIndex = 11;
+            txt_email.Leave += txt_email_Leave;
             // 
             // lb_email
             // 
@@ -141,7 +142,7 @@
             gr_periodo.Controls.Add(rd_noite);
             gr_periodo.Controls.Add(rd_tarde);
             gr_periodo.ForeColor = Color.White;
-            gr_periodo.Location = new Point(43, 168);
+            gr_periodo.Location = new Point(43, 170);
             gr_periodo.Margin = new Padding(3, 4, 3, 4);
             gr_periodo.Name = "gr_periodo";
             gr_periodo.Padding = new Padding(3, 4, 3, 4);
@@ -149,7 +150,7 @@
             gr_periodo.TabIndex = 15;
             gr_periodo.TabStop = false;
             gr_periodo.Text = "Período";
-            gr_periodo.Enter += groupBox1_Enter;
+            gr_periodo.Enter += gr_periodo_Enter;
             // 
             // rd_manha
             // 
@@ -163,6 +164,7 @@
             rd_manha.TabStop = true;
             rd_manha.Text = "Manhã";
             rd_manha.UseVisualStyleBackColor = true;
+            rd_manha.Leave += rd_manha_Leave;
             // 
             // rd_noite
             // 
@@ -176,6 +178,7 @@
             rd_noite.TabStop = true;
             rd_noite.Text = "Noite";
             rd_noite.UseVisualStyleBackColor = true;
+            rd_noite.Leave += rd_manha_Leave;
             // 
             // rd_tarde
             // 
@@ -189,29 +192,30 @@
             rd_tarde.TabStop = true;
             rd_tarde.Text = "Tarde";
             rd_tarde.UseVisualStyleBackColor = true;
+            rd_tarde.Leave += rd_manha_Leave;
             // 
-            // lts_disponiveis
+            // lst_disponiveis
             // 
-            lts_disponiveis.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lts_disponiveis.FormattingEnabled = true;
-            lts_disponiveis.ItemHeight = 21;
-            lts_disponiveis.Items.AddRange(new object[] { "Karatê", "Muay Thai", "Judô", "Capoeira", "Boxing", "Taekwondo", "Kung-Fu" });
-            lts_disponiveis.Location = new Point(14, 29);
-            lts_disponiveis.Margin = new Padding(3, 4, 3, 4);
-            lts_disponiveis.Name = "lts_disponiveis";
-            lts_disponiveis.Size = new Size(189, 172);
-            lts_disponiveis.TabIndex = 16;
+            lst_disponiveis.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lst_disponiveis.FormattingEnabled = true;
+            lst_disponiveis.ItemHeight = 21;
+            lst_disponiveis.Items.AddRange(new object[] { "Karatê", "Muay Thai", "Judô", "Capoeira", "Boxing", "Taekwondo", "Kung-Fu" });
+            lst_disponiveis.Location = new Point(14, 29);
+            lst_disponiveis.Margin = new Padding(3, 4, 3, 4);
+            lst_disponiveis.Name = "lst_disponiveis";
+            lst_disponiveis.Size = new Size(189, 172);
+            lst_disponiveis.TabIndex = 16;
             // 
             // gr_modalidades
             // 
-            gr_modalidades.Controls.Add(lts_selecionadas);
-            gr_modalidades.Controls.Add(button5);
-            gr_modalidades.Controls.Add(btn);
-            gr_modalidades.Controls.Add(btn_individualEsquerda);
-            gr_modalidades.Controls.Add(btn_individualDireita);
-            gr_modalidades.Controls.Add(lts_disponiveis);
+            gr_modalidades.Controls.Add(lst_selecionadas);
+            gr_modalidades.Controls.Add(btn_removeTodos);
+            gr_modalidades.Controls.Add(btn_addTodos);
+            gr_modalidades.Controls.Add(btn_remove);
+            gr_modalidades.Controls.Add(btn_add);
+            gr_modalidades.Controls.Add(lst_disponiveis);
             gr_modalidades.ForeColor = Color.White;
-            gr_modalidades.Location = new Point(43, 252);
+            gr_modalidades.Location = new Point(43, 250);
             gr_modalidades.Margin = new Padding(3, 4, 3, 4);
             gr_modalidades.Name = "gr_modalidades";
             gr_modalidades.Padding = new Padding(3, 4, 3, 4);
@@ -220,69 +224,76 @@
             gr_modalidades.TabStop = false;
             gr_modalidades.Text = "Modalidades";
             // 
-            // lts_selecionadas
+            // lst_selecionadas
             // 
-            lts_selecionadas.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lts_selecionadas.FormattingEnabled = true;
-            lts_selecionadas.ItemHeight = 21;
-            lts_selecionadas.Location = new Point(338, 29);
-            lts_selecionadas.Margin = new Padding(3, 4, 3, 4);
-            lts_selecionadas.Name = "lts_selecionadas";
-            lts_selecionadas.Size = new Size(207, 172);
-            lts_selecionadas.TabIndex = 22;
+            lst_selecionadas.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lst_selecionadas.FormattingEnabled = true;
+            lst_selecionadas.ItemHeight = 21;
+            lst_selecionadas.Location = new Point(338, 29);
+            lst_selecionadas.Margin = new Padding(3, 4, 3, 4);
+            lst_selecionadas.Name = "lst_selecionadas";
+            lst_selecionadas.Size = new Size(207, 172);
+            lst_selecionadas.TabIndex = 22;
             // 
-            // button5
+            // btn_removeTodos
             // 
-            button5.ForeColor = Color.Navy;
-            button5.Location = new Point(230, 184);
-            button5.Margin = new Padding(3, 4, 3, 4);
-            button5.Name = "button5";
-            button5.Size = new Size(73, 43);
-            button5.TabIndex = 21;
-            button5.Text = "<<";
-            button5.UseVisualStyleBackColor = true;
+            btn_removeTodos.Enabled = false;
+            btn_removeTodos.ForeColor = Color.Navy;
+            btn_removeTodos.Location = new Point(230, 184);
+            btn_removeTodos.Margin = new Padding(3, 4, 3, 4);
+            btn_removeTodos.Name = "btn_removeTodos";
+            btn_removeTodos.Size = new Size(73, 43);
+            btn_removeTodos.TabIndex = 21;
+            btn_removeTodos.Text = "<<";
+            btn_removeTodos.UseVisualStyleBackColor = true;
+            btn_removeTodos.Click += btn_removeTodos_Click;
             // 
-            // btn
+            // btn_addTodos
             // 
-            btn.ForeColor = Color.Navy;
-            btn.Location = new Point(230, 133);
-            btn.Margin = new Padding(3, 4, 3, 4);
-            btn.Name = "btn";
-            btn.Size = new Size(73, 43);
-            btn.TabIndex = 20;
-            btn.Text = ">>";
-            btn.UseVisualStyleBackColor = true;
+            btn_addTodos.Enabled = false;
+            btn_addTodos.ForeColor = Color.Navy;
+            btn_addTodos.Location = new Point(230, 133);
+            btn_addTodos.Margin = new Padding(3, 4, 3, 4);
+            btn_addTodos.Name = "btn_addTodos";
+            btn_addTodos.Size = new Size(73, 43);
+            btn_addTodos.TabIndex = 20;
+            btn_addTodos.Text = ">>";
+            btn_addTodos.UseVisualStyleBackColor = true;
+            btn_addTodos.Click += btn_addTodos_Click;
             // 
-            // btn_individualEsquerda
+            // btn_remove
             // 
-            btn_individualEsquerda.ForeColor = Color.Navy;
-            btn_individualEsquerda.Location = new Point(230, 83);
-            btn_individualEsquerda.Margin = new Padding(3, 4, 3, 4);
-            btn_individualEsquerda.Name = "btn_individualEsquerda";
-            btn_individualEsquerda.Size = new Size(73, 43);
-            btn_individualEsquerda.TabIndex = 19;
-            btn_individualEsquerda.Text = "<";
-            btn_individualEsquerda.UseVisualStyleBackColor = true;
+            btn_remove.Enabled = false;
+            btn_remove.ForeColor = Color.Navy;
+            btn_remove.Location = new Point(230, 83);
+            btn_remove.Margin = new Padding(3, 4, 3, 4);
+            btn_remove.Name = "btn_remove";
+            btn_remove.Size = new Size(73, 43);
+            btn_remove.TabIndex = 19;
+            btn_remove.Text = "<";
+            btn_remove.UseVisualStyleBackColor = true;
+            btn_remove.Click += btn_remove_Click;
             // 
-            // btn_individualDireita
+            // btn_add
             // 
-            btn_individualDireita.ForeColor = Color.Navy;
-            btn_individualDireita.Location = new Point(230, 29);
-            btn_individualDireita.Margin = new Padding(3, 4, 3, 4);
-            btn_individualDireita.Name = "btn_individualDireita";
-            btn_individualDireita.Size = new Size(73, 43);
-            btn_individualDireita.TabIndex = 18;
-            btn_individualDireita.Text = ">";
-            btn_individualDireita.UseVisualStyleBackColor = true;
-            btn_individualDireita.Click += button2_Click;
+            btn_add.Enabled = false;
+            btn_add.ForeColor = Color.Navy;
+            btn_add.Location = new Point(230, 29);
+            btn_add.Margin = new Padding(3, 4, 3, 4);
+            btn_add.Name = "btn_add";
+            btn_add.Size = new Size(73, 43);
+            btn_add.TabIndex = 18;
+            btn_add.Text = ">";
+            btn_add.UseVisualStyleBackColor = true;
+            btn_add.Click += btn_add_Click;
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(textBox5);
+            groupBox3.Controls.Add(txt_valor);
             groupBox3.Controls.Add(label6);
-            groupBox3.Controls.Add(textBox4);
+            groupBox3.Controls.Add(txt_cortesia);
             groupBox3.Controls.Add(label5);
-            groupBox3.Controls.Add(textBox3);
+            groupBox3.Controls.Add(txt_qtd);
             groupBox3.Controls.Add(label4);
             groupBox3.ForeColor = Color.White;
             groupBox3.Location = new Point(43, 519);
@@ -294,17 +305,18 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Resumo";
             // 
-            // textBox5
+            // txt_valor
             // 
-            textBox5.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox5.ForeColor = Color.Red;
-            textBox5.Location = new Point(643, 36);
-            textBox5.Margin = new Padding(3, 4, 3, 4);
-            textBox5.Name = "textBox5";
-            textBox5.RightToLeft = RightToLeft.Yes;
-            textBox5.Size = new Size(114, 29);
-            textBox5.TabIndex = 5;
-            textBox5.Text = "0";
+            txt_valor.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txt_valor.ForeColor = Color.Red;
+            txt_valor.Location = new Point(643, 36);
+            txt_valor.Margin = new Padding(3, 4, 3, 4);
+            txt_valor.Name = "txt_valor";
+            txt_valor.ReadOnly = true;
+            txt_valor.RightToLeft = RightToLeft.Yes;
+            txt_valor.Size = new Size(114, 29);
+            txt_valor.TabIndex = 5;
+            txt_valor.Text = "0";
             // 
             // label6
             // 
@@ -316,17 +328,18 @@
             label6.TabIndex = 4;
             label6.Text = "Valor a Pagar(R$)";
             // 
-            // textBox4
+            // txt_cortesia
             // 
-            textBox4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox4.ForeColor = Color.Red;
-            textBox4.Location = new Point(371, 36);
-            textBox4.Margin = new Padding(3, 4, 3, 4);
-            textBox4.Name = "textBox4";
-            textBox4.RightToLeft = RightToLeft.Yes;
-            textBox4.Size = new Size(114, 29);
-            textBox4.TabIndex = 3;
-            textBox4.Text = "0";
+            txt_cortesia.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txt_cortesia.ForeColor = Color.Red;
+            txt_cortesia.Location = new Point(371, 36);
+            txt_cortesia.Margin = new Padding(3, 4, 3, 4);
+            txt_cortesia.Name = "txt_cortesia";
+            txt_cortesia.ReadOnly = true;
+            txt_cortesia.RightToLeft = RightToLeft.Yes;
+            txt_cortesia.Size = new Size(114, 29);
+            txt_cortesia.TabIndex = 3;
+            txt_cortesia.Text = "0";
             // 
             // label5
             // 
@@ -338,17 +351,18 @@
             label5.TabIndex = 2;
             label5.Text = "Cortesia";
             // 
-            // textBox3
+            // txt_qtd
             // 
-            textBox3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox3.ForeColor = Color.Red;
-            textBox3.Location = new Point(99, 36);
-            textBox3.Margin = new Padding(3, 4, 3, 4);
-            textBox3.Name = "textBox3";
-            textBox3.RightToLeft = RightToLeft.Yes;
-            textBox3.Size = new Size(114, 29);
-            textBox3.TabIndex = 1;
-            textBox3.Text = "0";
+            txt_qtd.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txt_qtd.ForeColor = Color.Red;
+            txt_qtd.Location = new Point(99, 36);
+            txt_qtd.Margin = new Padding(3, 4, 3, 4);
+            txt_qtd.Name = "txt_qtd";
+            txt_qtd.ReadOnly = true;
+            txt_qtd.RightToLeft = RightToLeft.Yes;
+            txt_qtd.Size = new Size(114, 29);
+            txt_qtd.TabIndex = 1;
+            txt_qtd.Text = "0";
             // 
             // label4
             // 
@@ -359,26 +373,25 @@
             label4.Size = new Size(87, 20);
             label4.TabIndex = 0;
             label4.Text = "Quantidade";
-            label4.Click += label4_Click;
             // 
-            // button2
+            // btn_sair
             // 
-            button2.Location = new Point(182, 631);
-            button2.Margin = new Padding(3, 4, 3, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(114, 51);
-            button2.TabIndex = 19;
-            button2.Text = "Sair";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click_1;
+            btn_sair.Location = new Point(182, 631);
+            btn_sair.Margin = new Padding(3, 4, 3, 4);
+            btn_sair.Name = "btn_sair";
+            btn_sair.Size = new Size(114, 51);
+            btn_sair.TabIndex = 19;
+            btn_sair.Text = "Sair";
+            btn_sair.UseVisualStyleBackColor = true;
+            btn_sair.Click += btn_sair_Click;
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(checkBox5);
-            groupBox4.Controls.Add(checkBox4);
-            groupBox4.Controls.Add(checkBox3);
-            groupBox4.Controls.Add(checkBox2);
-            groupBox4.Controls.Add(checkBox1);
+            groupBox4.Controls.Add(chk_musculacao);
+            groupBox4.Controls.Add(chk_natacao);
+            groupBox4.Controls.Add(chk_pilates);
+            groupBox4.Controls.Add(chk_yoga);
+            groupBox4.Controls.Add(chk_meditacao);
             groupBox4.ForeColor = Color.White;
             groupBox4.Location = new Point(661, 252);
             groupBox4.Margin = new Padding(3, 4, 3, 4);
@@ -389,75 +402,79 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "Cortesia";
             // 
-            // checkBox5
+            // chk_musculacao
             // 
-            checkBox5.AutoSize = true;
-            checkBox5.ForeColor = Color.White;
-            checkBox5.Location = new Point(16, 177);
-            checkBox5.Margin = new Padding(3, 4, 3, 4);
-            checkBox5.Name = "checkBox5";
-            checkBox5.Size = new Size(109, 24);
-            checkBox5.TabIndex = 4;
-            checkBox5.Text = "Musculação";
-            checkBox5.UseVisualStyleBackColor = true;
+            chk_musculacao.AutoSize = true;
+            chk_musculacao.Enabled = false;
+            chk_musculacao.ForeColor = Color.White;
+            chk_musculacao.Location = new Point(16, 177);
+            chk_musculacao.Margin = new Padding(3, 4, 3, 4);
+            chk_musculacao.Name = "chk_musculacao";
+            chk_musculacao.Size = new Size(109, 24);
+            chk_musculacao.TabIndex = 4;
+            chk_musculacao.Text = "Musculação";
+            chk_musculacao.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // chk_natacao
             // 
-            checkBox4.AutoSize = true;
-            checkBox4.ForeColor = Color.White;
-            checkBox4.Location = new Point(16, 144);
-            checkBox4.Margin = new Padding(3, 4, 3, 4);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Size = new Size(87, 24);
-            checkBox4.TabIndex = 3;
-            checkBox4.Text = "Natação";
-            checkBox4.UseVisualStyleBackColor = true;
+            chk_natacao.AutoSize = true;
+            chk_natacao.Enabled = false;
+            chk_natacao.ForeColor = Color.White;
+            chk_natacao.Location = new Point(16, 144);
+            chk_natacao.Margin = new Padding(3, 4, 3, 4);
+            chk_natacao.Name = "chk_natacao";
+            chk_natacao.Size = new Size(87, 24);
+            chk_natacao.TabIndex = 3;
+            chk_natacao.Text = "Natação";
+            chk_natacao.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // chk_pilates
             // 
-            checkBox3.AutoSize = true;
-            checkBox3.ForeColor = Color.White;
-            checkBox3.Location = new Point(16, 111);
-            checkBox3.Margin = new Padding(3, 4, 3, 4);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new Size(74, 24);
-            checkBox3.TabIndex = 2;
-            checkBox3.Text = "Pilates";
-            checkBox3.UseVisualStyleBackColor = true;
+            chk_pilates.AutoSize = true;
+            chk_pilates.Enabled = false;
+            chk_pilates.ForeColor = Color.White;
+            chk_pilates.Location = new Point(16, 111);
+            chk_pilates.Margin = new Padding(3, 4, 3, 4);
+            chk_pilates.Name = "chk_pilates";
+            chk_pilates.Size = new Size(74, 24);
+            chk_pilates.TabIndex = 2;
+            chk_pilates.Text = "Pilates";
+            chk_pilates.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // chk_yoga
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.ForeColor = Color.White;
-            checkBox2.Location = new Point(16, 77);
-            checkBox2.Margin = new Padding(3, 4, 3, 4);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(64, 24);
-            checkBox2.TabIndex = 1;
-            checkBox2.Text = "Yoga";
-            checkBox2.UseVisualStyleBackColor = true;
+            chk_yoga.AutoSize = true;
+            chk_yoga.Enabled = false;
+            chk_yoga.ForeColor = Color.White;
+            chk_yoga.Location = new Point(16, 77);
+            chk_yoga.Margin = new Padding(3, 4, 3, 4);
+            chk_yoga.Name = "chk_yoga";
+            chk_yoga.Size = new Size(64, 24);
+            chk_yoga.TabIndex = 1;
+            chk_yoga.Text = "Yoga";
+            chk_yoga.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // chk_meditacao
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.ForeColor = Color.White;
-            checkBox1.Location = new Point(16, 44);
-            checkBox1.Margin = new Padding(3, 4, 3, 4);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(102, 24);
-            checkBox1.TabIndex = 0;
-            checkBox1.Text = "Meditação";
-            checkBox1.UseVisualStyleBackColor = true;
-            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            chk_meditacao.AutoSize = true;
+            chk_meditacao.Enabled = false;
+            chk_meditacao.ForeColor = Color.White;
+            chk_meditacao.Location = new Point(16, 44);
+            chk_meditacao.Margin = new Padding(3, 4, 3, 4);
+            chk_meditacao.Name = "chk_meditacao";
+            chk_meditacao.Size = new Size(102, 24);
+            chk_meditacao.TabIndex = 0;
+            chk_meditacao.Text = "Meditação";
+            chk_meditacao.UseVisualStyleBackColor = true;
             // 
-            // Academia
+            // Formulario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MidnightBlue;
             ClientSize = new Size(864, 711);
             Controls.Add(groupBox4);
-            Controls.Add(button2);
+            Controls.Add(btn_sair);
             Controls.Add(groupBox3);
             Controls.Add(gr_modalidades);
             Controls.Add(gr_periodo);
@@ -467,12 +484,11 @@
             Controls.Add(pictureBox1);
             Controls.Add(txt_nome);
             Controls.Add(lb_nome);
-            Controls.Add(button1);
-            FormBorderStyle = FormBorderStyle.None;
+            Controls.Add(btn_limpar);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(3, 4, 3, 4);
-            Name = "Academia";
+            Name = "Formulario";
             Text = "Academia";
-            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             gr_periodo.ResumeLayout(false);
             gr_periodo.PerformLayout();
@@ -487,7 +503,7 @@
 
         #endregion
 
-        private Button button1;
+        private Button btn_limpar;
         private Label lb_nome;
         private TextBox txt_nome;
         private PictureBox pictureBox1;
@@ -498,26 +514,26 @@
         private RadioButton rd_manha;
         private RadioButton rd_noite;
         private RadioButton rd_tarde;
-        private ListBox lts_disponiveis;
+        private ListBox lst_disponiveis;
         private GroupBox gr_modalidades;
-        private Button btn_individualDireita;
-        private ListBox lts_selecionadas;
-        private Button button5;
-        private Button btn;
-        private Button btn_individualEsquerda;
+        private Button btn_add;
+        private ListBox lst_selecionadas;
+        private Button btn_removeTodos;
+        private Button btn_addTodos;
+        private Button btn_remove;
         private GroupBox groupBox3;
-        private TextBox textBox3;
+        private TextBox txt_qtd;
         private Label label4;
-        private Button button2;
+        private Button btn_sair;
         private GroupBox groupBox4;
-        private TextBox textBox5;
+        private TextBox txt_valor;
         private Label label6;
-        private TextBox textBox4;
+        private TextBox txt_cortesia;
         private Label label5;
-        private CheckBox checkBox5;
-        private CheckBox checkBox4;
-        private CheckBox checkBox3;
-        private CheckBox checkBox2;
-        private CheckBox checkBox1;
+        private CheckBox chk_musculacao;
+        private CheckBox chk_natacao;
+        private CheckBox chk_pilates;
+        private CheckBox chk_yoga;
+        private CheckBox chk_meditacao;
     }
 }
